@@ -1,0 +1,46 @@
+apiVersion: anthos-migrate.cloud.google.com/v1beta1
+kind: Migration
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"anthos-migrate.cloud.google.com/v1beta1","kind":"Migration","metadata":{"annotations":{},"name":"hipster-crm-migration-demo","namespace":"default"},"spec":{"artifacts":{"dataVolumes":[{"folders":["\u003cfolder\u003e"],"pvcName":"hipster-crm-demo-pvc"}],"deployment":{"appName":"hipster-legacy-crm","bucket":"migrate-82-731-migration-artifacts","pathPrefix":"default-hipster-crm-migration-demo/"},"excludeFilters":["- *.swp","- /etc/fstab","- /boot/","- /tmp/*","- /var/log/*.log*","- /var/log/*/*.log*","- /var/cache/*"],"image":{"base":"gcr.io/migrate-82-731/hipster-crm-demo-non-runnable-base:v1.0.0","name":"gcr.io/migrate-82-731/hipster-crm-demo:v1.0.0"}},"intent":"ImageAndData","source":{"vmware":{"runMode":"TestClone","storageClassName":"my-vmware-src","vmId":"java-app"}}}}
+  creationTimestamp: "2020-06-12T07:09:42Z"
+  generation: 1
+  name: hipster-crm-migration-demo
+  namespace: default
+  resourceVersion: "14883200"
+  selfLink: /apis/anthos-migrate.cloud.google.com/v1beta1/namespaces/default/migrations/hipster-crm-migration-demo
+  uid: b0401b3c-ac7b-11ea-a518-42010aa8007e
+spec:
+  artifacts:
+    dataVolumes:
+    - folders:
+      - <folder>
+      pvcName: hipster-crm-demo-pvc
+    deployment:
+      appName: hipster-legacy-crm
+      bucket: migrate-82-731-migration-artifacts
+      pathPrefix: default-hipster-crm-migration-demo/
+    excludeFilters:
+    - '- *.swp'
+    - '- /etc/fstab'
+    - '- /boot/'
+    - '- /tmp/*'
+    - '- /var/log/*.log*'
+    - '- /var/log/*/*.log*'
+    - '- /var/cache/*'
+    image:
+      base: gcr.io/migrate-82-731/hipster-crm-demo-non-runnable-base:v1.0.0
+      name: gcr.io/migrate-82-731/hipster-crm-demo:v1.0.0
+  configs: {}
+  intent: ImageAndData
+  source:
+    vmware:
+      runMode: TestClone
+      storageClassName: my-vmware-src
+      vmId: java-app
+status:
+  process: ""
+  state: ""
+  status: ""
+  steps: null
