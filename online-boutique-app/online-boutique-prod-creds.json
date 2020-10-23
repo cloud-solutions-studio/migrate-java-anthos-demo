@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "mintindola-online-boutique",
+  "private_key_id": "968eadb80e952feca2c41297e16c9a658cdcabd3",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC3OAz6k9tTfbjV\niWEvDokWM0EPEGADHsapPbGo0DHskuwddm1ZclJ+T/NeWnb9AZQrG4y1M5qonFtj\nxndKOEIGgK9H3fY+cKY3V53lgAKRk6PQYlR3zIGwVB4PVOslfAb99bdkcQ7tcfqG\n7lKpW/bNmCxSYl7jqBoc1DK8KnxT1Zb+AAHgqN8kwMPqT939OWB5wj+024dNbUn9\nfIVvUHQhxAgvdW/SigBxE/UVkgCQXKzlMkd8Ntw63C012ifNhdyX6ByGwUDsu3rZ\nzc38OE8ekbjwJwDvhsh44cf2Cnh3FUkheOzgumtqGi3l0NTALBYbY/u2sjHi8PIl\n13eubkZdAgMBAAECggEAKCQ1H78+OcwdL1eifbNTEJSZJ+pABt76yoCUSHaYwYqt\nBYV5TrQP49GzcdQjJqpuYoVuLhMIyvE6yqDkaNPrj04pWPcF6Mc4e36MPwhtR6TP\nqquocvjQ3yeG0Hgb7sH+LCzmCbEFgrtKlr5nSOi3qXKyHzijLoCZfAB3vycVxy3w\nLSrJnmvgt4175xpWnH0270XKOOfYzGKk59UJDhSZ2fLquKyWY1vtCi3kXTLAvJ4R\nGc86jyy7P2vSDWCYcB+9Ju9Rzcwf41zi3wtqL9LD91fzpxks4J3TKoO/ZkFzCbWL\nO3Tqlo365D0u67mkA4HjJY4BDwlvoSKIxVZWy17jRwKBgQD7NyUKPTlJN65acCra\n+LkFEcXVeAYvAzNyrpSgt415zws01i1gS73qu5N2GyVOLXjnPA493AXMQAl3yu3L\nWcyTeUJftIZAXdRqroD0OX/KkQtVVpAuaki8jT3cNc3nTEnW3uKSuwiwe6kGSR2i\n1sowlnsJT9/yu/QvgCgGhviCAwKBgQC6tV/epaoiV0JB4swlvjH49nRunHe/P8wC\nG4g7qydUmaaHorbb3hVLCwVN/bG0q7UgjAvvVp+T7kCXGsUIhrn8JewWUk66EiNd\nuitIebhaJzRyQS+y7AhkwdLUuXkeWnx7ZcVAPfMaDhQZ+7y6tAfJBTJtgJoyoERt\nJA5zhYzYHwKBgQDgc73RbzBO3cQXI972dIIDKIUFHM8RlB+UmK1NB5MNQVL262Hx\nhtrx7pRrUwe62OAMYlkrJfm8K38KHDLonJwvK4mFLytAOVV/19h53SHzoDJrFgOO\npQHGDcA2j5Af18alh9ESXq/91w8HAa7L/nL6hIj7ofUq0In1IuEgK9m/dwKBgE5Y\nRT477cQzMU5MSLWdtYJuiDTR2z2ZG5XWz7eZ/gr13ncTw/9GlVDD8xni1mqlkn9x\nxKBNjPCaDOhbB0qoneo8T3CeYQKbEdQGhpsG2GCcCtnWmJlPicYdvsYcfcJK3ek5\nrydh11ybg7vTckI1wP6M+7gPOqT7szrI4nd/FrapAoGAQapKhOVbykFYRtRVLx4W\nKyPqNSvDwDR1BV0h8T/QjJ7CQBZ+nT2PwGF4uef/t68SEAY7fcwFBomqgjAZLHF5\nJKrT0awLGdi2hUZ277gYnY2aUSuzQRV4bYIdsZE+e9/zQA/x/pSgLqDerPuHbpQo\n9JSn0XY3FzEQgxa/2WDmrO8=\n-----END PRIVATE KEY-----\n",
+  "client_email": "online-boutique-prod@mintindola-online-boutique.iam.gserviceaccount.com",
+  "client_id": "111909914467838015330",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/online-boutique-prod%40mintindola-online-boutique.iam.gserviceaccount.com"
+}

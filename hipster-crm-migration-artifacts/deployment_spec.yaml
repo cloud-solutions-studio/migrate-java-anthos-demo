@@ -1,0 +1,143 @@
+# Hipster Legacy CRM: Stateful Set
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  creationTimestamp: null
+  labels:
+    app: hipster-legacy-crm
+    migrate-for-anthos-type: workload
+  name: hipster-legacy-crm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hipster-legacy-crm
+      migrate-for-anthos-type: workload
+  serviceName: hipster-legacy-crm
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: hipster-legacy-crm
+        migrate-for-anthos-type: workload
+    spec:
+      containers:
+      - image: gcr.io/migrate-82-731/hipster-crm-demo:v1.0.0
+        name: hipster-legacy-crm
+        readinessProbe:
+          exec:
+            command:
+            - /code/ready.sh
+        resources: {}
+        securityContext:
+          privileged: true
+        ports:
+        - containerPort: 7001
+        volumeMounts:
+        - mountPath: /sys/fs/cgroup
+          name: cgroups
+        - mountPath: /<folder>
+          name: hipster-crm-demo-pvc
+          subPath: <folder>
+      volumes:
+      - hostPath:
+          path: /sys/fs/cgroup
+          type: Directory
+        name: cgroups
+      - name: hipster-crm-demo-pvc
+        persistentVolumeClaim:
+          claimName: hipster-crm-demo-pvc
+  updateStrategy: {}
+status:
+  replicas: 0
+
+---
+# Hipster Legacy CRM: External Load Balancer & Cluster IP
+apiVersion: v1
+kind: Service
+metadata:
+  name: hipster-legacy-crm-external
+spec:
+  type: LoadBalancer
+  selector:
+    app: hipster-legacy-crm
+    migrate-for-anthos-type: workload
+  ports:
+  - name: http
+    port: 7001
+    targetPort: 7001
+
+---
+# Hipster Legacy CRM: Persistent Volume
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  annotations:
+    kubernetes.io/createdby: gce-pd-dynamic-provisioner
+    pv.kubernetes.io/bound-by-controller: "yes"
+    pv.kubernetes.io/provisioned-by: kubernetes.io/gce-pd
+  creationTimestamp: "2020-06-12T07:09:46Z"
+  finalizers:
+  - kubernetes.io/pv-protection
+  labels:
+    failure-domain.beta.kubernetes.io/region: us-west2
+    failure-domain.beta.kubernetes.io/zone: us-west2-b
+    migration: hipster-crm-migration-demo
+    migration-namespace: default
+    migration-uid: 4b7c56e2-9027-11ea-804a-42010aa8002c
+  name: pvc-4b7c56e2-9027-11ea-804a-42010aa8002c
+spec:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 47Gi
+  gcePersistentDisk:
+    fsType: ext4
+    pdName: gke-m4a-processing-8a2-pvc-4b7c56e2-9027-11ea-804a-42010aa8002c
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: failure-domain.beta.kubernetes.io/zone
+          operator: In
+          values:
+          - us-west2-b
+        - key: failure-domain.beta.kubernetes.io/region
+          operator: In
+          values:
+          - us-west2
+  persistentVolumeReclaimPolicy: Retain
+  volumeMode: Filesystem
+status: {}
+
+---
+# Hipster Legacy CRM: Persistent Volume Claim
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"PersistentVolumeClaim","metadata":{"annotations":{},"name":"hipster-crm-demo-pvc","namespace":"default"},"spec":{"accessModes":["ReadWriteOnce"],"resources":{"requests":{"storage":"50G"}},"storageClassName":"retain-standard-ssd"}}
+    pv.kubernetes.io/bind-completed: "yes"
+    pv.kubernetes.io/bound-by-controller: "yes"
+    volume.beta.kubernetes.io/storage-provisioner: kubernetes.io/gce-pd
+  creationTimestamp: "2020-06-12T07:09:43Z"
+  finalizers:
+  - kubernetes.io/pvc-protection
+  labels:
+    migration: hipster-crm-migration-demo
+    migration-namespace: default
+    migration-uid: 4b7c56e2-9027-11ea-804a-42010aa8002c
+  name: hipster-crm-demo-pvc
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 50G
+  storageClassName: ""
+  volumeMode: Filesystem
+  volumeName: pvc-4b7c56e2-9027-11ea-804a-42010aa8002c
+status: {}
+
+---
